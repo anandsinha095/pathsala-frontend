@@ -1,0 +1,85 @@
+	<!-- Main Wrapper -->
+        <div class="main-wrapper">
+			<div class="account-content">
+				<a href="job-list.html" class="btn btn-primary apply-btn">Apply Job</a>
+				<div class="container">
+				
+					<!-- Account Logo -->
+					<div class="account-logo">
+						<a href="index.html"><img src="assets/img/logo1.png" alt="Dreamguy's Technologies"></a>
+					</div>
+					<!-- /Account Logo -->
+					
+					<div class="account-box">
+						<div class="account-wrapper">
+							<h3 class="account-title">Register</h3>
+							<p class="account-subtitle">Access to our dashboard</p>
+							
+							<!-- Account Form -->
+							<form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+								<div class="form-group">
+									<label>Email</label>
+									<input class="form-control"  [formControl]="registerForm.controls.email" type="text">
+									<div *ngIf="registerForm.controls.email.errors && (registerForm.controls.email.dirty || registerForm.controls.email.touched)"
+										class="error matMargin">
+										<div [hidden]="!registerForm.controls.email.errors.required">
+											Email is required
+										</div>
+										<div [hidden]="!registerForm.controls.email.errors.email">
+											Email must be a valid email
+										</div>
+										<div [hidden]="!registerForm.controls.email.errors.maxlength">
+											Email cannot be more than 32 characters long
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Password</label>
+									<input class="form-control"  type="password" #x [formControl]="registerForm.controls.password">
+									<!-- <span    class="fa field-icon" (click)="x.type=x.type=='password'?'text':'password'"   [ngClass]=" {'fa-eye-slash ': x.type === 'password','fa-eye': x.type === 'text'}"></span> -->
+									<div *ngIf="registerForm.controls.password.errors && (registerForm.controls.password.dirty || registerForm.controls.password.touched)"
+									class="error matMargin">
+										<div [hidden]="!registerForm.controls.password.errors.required">
+											password is required!
+										</div>
+										<div [hidden]="!registerForm.controls.password.errors.minlength">
+											Password must be at least 8 characters long.
+										</div>
+										<div [hidden]="!registerForm.controls.password.errors.maxlength">
+											Password cannot be more than 16 characters long.
+										</div>
+										<div [hidden]="!registerForm.controls.password.errors.pattern">
+											Password must contain at least 1 lowercase, 1 uppercase, 1 numeric & one special character.
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Confirm Password</label>
+									<input  class="form-control"  type="password" #y
+									[formControl]="registerForm.controls.confirmPassword">
+									<!-- <span class="fa field-icon"      (click)="y.type=y.type=='password'?'text':'password'"   [ngClass]=" {'fa-eye-slash ': y.type === 'password','fa-eye': y.type === 'text'}"></span> -->
+									<div *ngIf="registerForm.controls.confirmPassword.errors && (registerForm.controls.confirmPassword.dirty || registerForm.controls.confirmPassword.touched)"
+										class="error matMargin">
+										<div [hidden]="!registerForm.controls.confirmPassword.errors.required">
+											Confirm password is required!
+										</div>
+										<div *ngIf="registerForm.get('confirmPassword')?.errors?.notEquivalent">Passwords
+											did not match</div>
+									</div>
+								</div>
+								<div class="form-group text-center">
+									<button class="btn btn-primary account-btn" type="submit" value="Continue"
+									[disabled]="!registerForm.valid"
+									[ngClass]=" {'btn-info': registerForm.valid === true,'btn-light': registerForm.valid === false}">Register</button>
+								</div>
+								<div class="account-footer">
+									<p>Already have an account? <a routerLink="/login">Login</a></p>
+								</div>
+							</form>
+							<!-- /Account Form -->
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+		
