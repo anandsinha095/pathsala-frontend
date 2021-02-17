@@ -20,7 +20,7 @@
         
         <!-- Header Title -->
         <div class="page-title-box">
-            <h3>Golder Era Engilsh School</h3>
+            <h3>Golden Era Engilsh School</h3>
         </div>
         <!-- /Header Title -->
         
@@ -266,7 +266,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="profile.html">My Profile</a>
                     <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" (click)="logout()">Logout</a>
                 </div>
             </li>
         </ul>
@@ -293,10 +293,10 @@
                 <ul>
                     <li class="menu-title"><span>Main</span></li>
                     <li>
-                        <a href="javascript:void(0)"><i class="fa fa-dashboard"></i><span> Dashboard</span></a>
+                        <a routerLink="/home"><i class="fa fa-dashboard"></i><span> Dashboard</span></a>
                     </li>
                     <li class="submenu">
-                        <a class="noti-dot" href="#"><i class="fa fa-user"></i><span> Students</span><span class="menu-arrow"></span></a>
+                        <a class="noti-dot" routerLink="/students"><i class="fa fa-user"></i><span> Students</span><span class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a routerLink="/students">All Students</a></li>
                             <li><a href="holidays.html">Student Details</a></li>

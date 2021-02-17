@@ -67,31 +67,6 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	// Select 2
-	
-	if($('.select').length > 0) {
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-	}
-	
-	// Modal Popup hide show
-
-	if($('.modal').length > 0 ){
-		var modalUniqueClass = ".modal";
-		$('.modal').on('show.bs.modal', function(e) {
-		  var $element = $(this);
-		  var $uniques = $(modalUniqueClass + ':visible').not($(this));
-		  if ($uniques.length) {
-			$uniques.modal('hide');
-			$uniques.one('hidden.bs.modal', function(e) {
-			  $element.modal('show');
-			});
-			return false;
-		  }
-		});
-	}
 	
 	// Floating Label
 
@@ -146,14 +121,6 @@ $(document).ready(function() {
 		});
 	}
 	
-	// Datatable
-
-	if($('.datatable').length > 0) {
-		$('.datatable').DataTable({
-			"bFilter": false,
-		});
-	}
-	
 	// Tooltip
 
 	if($('[data-toggle="tooltip"]').length > 0) {
@@ -203,22 +170,6 @@ $(document).ready(function() {
 		});
 	}
 	
-	// Task Complete
-	
-	$(document).on('click', '#task_complete', function() {
-		$(this).toggleClass('task-completed');
-		return false;
-	});
-	
-	// Multiselect
-
-	if($('#customleave_select').length > 0) {
-		$('#customleave_select').multiselect();
-	}
-	if($('#edit_customleave_select').length > 0) {
-		$('#edit_customleave_select').multiselect();
-	}
-
 	// Leave Settings button show
 	
 	$(document).on('click', '.leave-edit-btn', function() {
@@ -326,19 +277,12 @@ $(document).ready(function() {
 		$('.file-wrap').removeClass('file-sidebar-toggle');
 	});
 	
-	if($('.kanban-wrap').length > 0) {
-		$(".kanban-wrap").sortable({
-			connectWith: ".kanban-wrap",
-			handle: ".kanban-box",
-			placeholder: "drag-placeholder"
-		});
-	}
 
 });
 
 // Loader
 
-$(window).on ('load', function (){
-	$('#loader').delay(100).fadeOut('slow');
-	$('#loader-wrapper').delay(500).fadeOut('slow');
-});
+// $(window).on ('load', function (){
+// 	$('#loader').delay(100).fadeOut('slow');
+// 	$('#loader-wrapper').delay(500).fadeOut('slow');
+// });

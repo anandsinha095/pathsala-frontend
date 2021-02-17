@@ -29,7 +29,7 @@ export class LoginService {
       this.apiCall.postRequest(data, "user/login").subscribe((res: any) => {
         if (res['data'].result['emailVerified'] && res['data'].result['status']) {
           this.setLocalStoreage.setLocalData(res)
-          this.toastr.success("Welcome to cypherchange", "login successfully")
+          this.toastr.success("Welcome to Golden Era English School", "login successfully")
           return resolve(this.router.navigate(['/home/']))
         }    
       }, error => {

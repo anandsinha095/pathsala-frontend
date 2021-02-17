@@ -18,208 +18,206 @@
             </div>
         </div>
         <!-- /Page Header -->
-        <div class="content container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <form [formGroup]="studentForm" (ngSubmit)="studentSubmit()">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>First Name <span class="text-danger">*</span></label>
-                                    <input class="form-control" [formControl]="studentForm.controls.firstName"  type="text">
-                                    <div *ngIf="submitted && studentForm.controls.firstName.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.firstName.errors.required">Please enter your First Name</div>
-                                        <div *ngIf="studentForm.controls.firstName.errors.firstName">Invalid First Name</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Last Name <span class="text-danger">*</span></label>
-                                    <input class="form-control"  [formControl]="studentForm.controls.lastName" type="text">
-                                    <div *ngIf="submitted && studentForm.controls.lastName.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.lastName.errors.required">Please enter your Last Name</div>
-                                        <div *ngIf="studentForm.controls.lastName.errors.lastName">Invalid Last Name</div>
-                                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="studentForm" (ngSubmit)="studentSubmit()">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>First Name <span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="studentForm.controls.firstName"  type="text">
+                                <div *ngIf="submitted && studentForm.controls.firstName.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.firstName.errors.required">Please enter your First Name</div>
+                                    <div *ngIf="studentForm.controls.firstName.errors.firstName">Invalid First Name</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Email <span class="text-danger">*</span></label>
-                                    <input class="form-control"  [formControl]="studentForm.controls.email" type="email">
-                                    <div *ngIf="submitted && studentForm.controls.email.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.email.errors.required">Please enter your email id</div>
-                                        <div *ngIf="studentForm.controls.email.errors.email">Invalid email</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Phone Number <span class="text-danger">*</span></label>
-                                    <input class="form-control"  [formControl]="studentForm.controls.phoneNumber" ype="text">
-                                    <div *ngIf="submitted && studentForm.controls.phoneNumber.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.phoneNumber.errors.required">Please enter your phone Number</div>
-                                        <div *ngIf="studentForm.controls.phoneNumber.errors.phoneNumber">Invalid phone Number</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Alternet Phone Number <span class="text-danger">*</span></label>
-                                    <input class="form-control"  [formControl]="studentForm.controls.alternetPhoneNumber" type="text">
-                                    <div *ngIf="submitted && studentForm.controls.alternetPhoneNumber.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.alternetPhoneNumber.errors.required">Please enter your alternet Phone Number</div>
-                                        <div *ngIf="studentForm.controls.alternetPhoneNumber.errors.alternetPhoneNumber">Invalid alternet Phone Number</div>
-                                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Last Name <span class="text-danger">*</span></label>
+                                <input class="form-control"  [formControl]="studentForm.controls.lastName" type="text">
+                                <div *ngIf="submitted && studentForm.controls.lastName.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.lastName.errors.required">Please enter your Last Name</div>
+                                    <div *ngIf="studentForm.controls.lastName.errors.lastName">Invalid Last Name</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Date of Birth <span class="text-danger">*</span></label>
-                                    <input class="form-control" [formControl]="studentForm.controls.dob"  type="date">
-                                    <div *ngIf="submitted && studentForm.controls.dob.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.dob.errors.required">Please enter your dob</div>
-                                        <div *ngIf="studentForm.controls.dob.errors.dob">Invalid dob</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Gender<span class="text-danger">*</span></label>
-                                    <select class="form-control select" [formControl]="studentForm.controls.gender">
-                                        <option value=1>Male</option>
-                                        <option value=0>Female</option>
-                                    </select>
-                                    <div *ngIf="submitted && studentForm.controls.gender.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.gender.errors.required">Please enter your gender</div>
-                                        <div *ngIf="studentForm.controls.gender.errors.gender">Invalid gender</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Select Class<span class="text-danger">*</span></label>
-                                    <select class="form-control select" [formControl]="studentForm.controls.classId">
-                                        <option  *ngFor="let classes of classes" [value]="classes._id"> {{classes.name}}</option>
-                                    </select>
-                                    <div *ngIf="submitted && studentForm.controls.classId.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.classId.errors.required">Please enter your class</div>
-                                        <div *ngIf="studentForm.controls.classId.errors.classId">Invalid class</div>
-                                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Email <span class="text-danger">*</span></label>
+                                <input class="form-control"  [formControl]="studentForm.controls.email" type="email">
+                                <div *ngIf="submitted && studentForm.controls.email.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.email.errors.required">Please enter your email id</div>
+                                    <div *ngIf="studentForm.controls.email.errors.email">Invalid email</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Father's First Name <span class="text-danger">*</span></label>
-                                    <input class="form-control" [formControl]="studentForm.controls.fatherFirstName"  type="text">
-                                    <div *ngIf="submitted && studentForm.controls.fatherFirstName.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.fatherFirstName.errors.required">Please enter your father FirstName</div>
-                                        <div *ngIf="studentForm.controls.fatherFirstName.errors.fatherFirstName">Invalid father FirstName</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Father's Last Name <span class="text-danger">*</span></label>
-                                    <input class="form-control" [formControl]="studentForm.controls.fatherLastName"  type="text">
-                                    <div *ngIf="submitted && studentForm.controls.fatherLastName.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.fatherLastName.errors.required">Please enter your father LastName</div>
-                                        <div *ngIf="studentForm.controls.fatherLastName.errors.fatherLastName">Invalid father LastName</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Father's Occupation<span class="text-danger">*</span></label>
-                                    <input class="form-control" [formControl]="studentForm.controls.fatherOccupation"  type="text">
-                                    <div *ngIf="submitted && studentForm.controls.fatherOccupation.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.fatherOccupation.errors.required">Please enter your father Occupation</div>
-                                        <div *ngIf="studentForm.controls.fatherOccupation.errors.fatherOccupation">Invalid father Occupation</div>
-                                    </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Phone Number <span class="text-danger">*</span></label>
+                                <input class="form-control"  [formControl]="studentForm.controls.phoneNumber" ype="text">
+                                <div *ngIf="submitted && studentForm.controls.phoneNumber.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.phoneNumber.errors.required">Please enter your phone Number</div>
+                                    <div *ngIf="studentForm.controls.phoneNumber.errors.phoneNumber">Invalid phone Number</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Mother's First Name <span class="text-danger">*</span></label>
-                                    <input class="form-control" [formControl]="studentForm.controls.montherFirstName"  type="text">
-                                    <div *ngIf="submitted && studentForm.controls.montherFirstName.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.montherFirstName.errors.required">Please enter your monther FirstName</div>
-                                        <div *ngIf="studentForm.controls.montherFirstName.errors.montherFirstName">Invalid monther FirstName</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Mother's Last Name <span class="text-danger">*</span></label>
-                                    <input class="form-control" [formControl]="studentForm.controls.montherLastName"  type="text">
-                                    <div *ngIf="submitted && studentForm.controls.montherLastName.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.montherLastName.errors.required">Please enter your monther LastName</div>
-                                        <div *ngIf="studentForm.controls.montherLastName.errors.montherLastName">Invalid monther LastName</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Mother's Occupation<span class="text-danger">*</span></label>
-                                    <input class="form-control" [formControl]="studentForm.controls.motherOccupation"  type="text">
-                                    <div *ngIf="submitted && studentForm.controls.motherOccupation.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.motherOccupation.errors.required">Please enter your mother Occupation</div>
-                                        <div *ngIf="studentForm.controls.motherOccupation.errors.motherOccupation">Invalid mother Occupation</div>
-                                    </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Alternet Phone Number </label>
+                                <input class="form-control"  [formControl]="studentForm.controls.alternetPhoneNumber" type="text">
+                                <div *ngIf="submitted && studentForm.controls.alternetPhoneNumber.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.alternetPhoneNumber.errors.required">Please enter your alternet Phone Number</div>
+                                    <div *ngIf="studentForm.controls.alternetPhoneNumber.errors.alternetPhoneNumber">Invalid alternet Phone Number</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Address Line 1<span class="text-danger">*</span></label>
-                                    <input class="form-control"  [formControl]="studentForm.controls.addressOne"  type="text">
-                                    <div *ngIf="submitted && studentForm.controls.addressOne.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.addressOne.errors.required">Please enter your address One</div>
-                                        <div *ngIf="studentForm.controls.addressOne.errors.addressOne">Invalid address One</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Address Line 2</label>
-                                    <input class="form-control" [formControl]="studentForm.controls.addressTwo"  type="text">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-3">
-                                <div class="form-group">
-                                    <label>City</label>
-                                    <input class="form-control" [formControl]="studentForm.controls.city" type="text">
-                                    <div *ngIf="submitted && studentForm.controls.city.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.city.errors.required">Please enter your city</div>
-                                        <div *ngIf="studentForm.controls.city.errors.city">Invalid city</div>
-                                    </div>
-                                </div>
-                            </div>                          
-                            <div class="col-sm-6 col-md-6 col-lg-3">
-                                <div class="form-group">
-                                    <label>Postal Code</label>
-                                    <input class="form-control" [formControl]="studentForm.controls.zipcode" type="number">
-                                    <div *ngIf="submitted && studentForm.controls.zipcode.errors" class="error matMargin">
-                                        <div *ngIf="studentForm.controls.zipcode.errors.required">Please enter your zipcode</div>
-                                        <div *ngIf="studentForm.controls.zipcode.errors.zipcode">Invalid zipcode</div>
-                                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Date of Birth <span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="studentForm.controls.dob"  type="date">
+                                <div *ngIf="submitted && studentForm.controls.dob.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.dob.errors.required">Please enter your dob</div>
+                                    <div *ngIf="studentForm.controls.dob.errors.dob">Invalid dob</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="submit-section">
-                            <button class="btn btn-primary submit-btn" type="submit" >Save</button>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Gender<span class="text-danger">*</span></label>
+                                <select class="form-control select" [formControl]="studentForm.controls.gender">
+                                    <option value=1>Male</option>
+                                    <option value=0>Female</option>
+                                </select>
+                                <div *ngIf="submitted && studentForm.controls.gender.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.gender.errors.required">Please enter your gender</div>
+                                    <div *ngIf="studentForm.controls.gender.errors.gender">Invalid gender</div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
-                </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Select Class<span class="text-danger">*</span></label>
+                                <select class="form-control select" [formControl]="studentForm.controls.classId">
+                                    <option  *ngFor="let classes of classes" [value]="classes._id"> {{classes.name}}</option>
+                                </select>
+                                <div *ngIf="submitted && studentForm.controls.classId.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.classId.errors.required">Please enter your class</div>
+                                    <div *ngIf="studentForm.controls.classId.errors.classId">Invalid class</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Father's First Name <span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="studentForm.controls.fatherFirstName"  type="text">
+                                <div *ngIf="submitted && studentForm.controls.fatherFirstName.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.fatherFirstName.errors.required">Please enter your father FirstName</div>
+                                    <div *ngIf="studentForm.controls.fatherFirstName.errors.fatherFirstName">Invalid father FirstName</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Father's Last Name <span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="studentForm.controls.fatherLastName"  type="text">
+                                <div *ngIf="submitted && studentForm.controls.fatherLastName.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.fatherLastName.errors.required">Please enter your father LastName</div>
+                                    <div *ngIf="studentForm.controls.fatherLastName.errors.fatherLastName">Invalid father LastName</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Father's Occupation<span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="studentForm.controls.fatherOccupation"  type="text">
+                                <div *ngIf="submitted && studentForm.controls.fatherOccupation.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.fatherOccupation.errors.required">Please enter your father Occupation</div>
+                                    <div *ngIf="studentForm.controls.fatherOccupation.errors.fatherOccupation">Invalid father Occupation</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Mother's First Name <span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="studentForm.controls.montherFirstName"  type="text">
+                                <div *ngIf="submitted && studentForm.controls.montherFirstName.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.montherFirstName.errors.required">Please enter your monther FirstName</div>
+                                    <div *ngIf="studentForm.controls.montherFirstName.errors.montherFirstName">Invalid monther FirstName</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Mother's Last Name <span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="studentForm.controls.montherLastName"  type="text">
+                                <div *ngIf="submitted && studentForm.controls.montherLastName.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.montherLastName.errors.required">Please enter your monther LastName</div>
+                                    <div *ngIf="studentForm.controls.montherLastName.errors.montherLastName">Invalid monther LastName</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Mother's Occupation<span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="studentForm.controls.motherOccupation"  type="text">
+                                <div *ngIf="submitted && studentForm.controls.motherOccupation.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.motherOccupation.errors.required">Please enter your mother Occupation</div>
+                                    <div *ngIf="studentForm.controls.motherOccupation.errors.motherOccupation">Invalid mother Occupation</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Address Line 1<span class="text-danger">*</span></label>
+                                <input class="form-control"  [formControl]="studentForm.controls.addressOne"  type="text">
+                                <div *ngIf="submitted && studentForm.controls.addressOne.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.addressOne.errors.required">Please enter your address One</div>
+                                    <div *ngIf="studentForm.controls.addressOne.errors.addressOne">Invalid address One</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Address Line 2</label>
+                                <input class="form-control" [formControl]="studentForm.controls.addressTwo"  type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input class="form-control" [formControl]="studentForm.controls.city" type="text">
+                                <div *ngIf="submitted && studentForm.controls.city.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.city.errors.required">Please enter your city</div>
+                                    <div *ngIf="studentForm.controls.city.errors.city">Invalid city</div>
+                                </div>
+                            </div>
+                        </div>                          
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input class="form-control" [formControl]="studentForm.controls.zipcode" type="number">
+                                <div *ngIf="submitted && studentForm.controls.zipcode.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.zipcode.errors.required">Please enter your zipcode</div>
+                                    <div *ngIf="studentForm.controls.zipcode.errors.zipcode">Invalid zipcode</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn" type="submit" >Save</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
