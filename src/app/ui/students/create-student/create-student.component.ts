@@ -30,7 +30,7 @@ export class CreateStudentComponent implements OnInit {
     this.studentForm = this.formBuilder.group({
         firstName: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
         lastName: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        email: ['', [Validators.required, Validators.email, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]],
+        email: ['', [Validators.email, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]],
         phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
         alternetPhoneNumber: ['', [Validators.maxLength(10), Validators.minLength(10)]],
         dob: ['', Validators.required],
@@ -49,7 +49,6 @@ export class CreateStudentComponent implements OnInit {
       })
     }
     async studentSubmit() {
-      console.log('>>>>>>>>>>', this.studentForm.value)
       this.submitted = true;
       if (this.studentForm.invalid) return;
       try {
