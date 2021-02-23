@@ -31,7 +31,7 @@ export class CreateStudentComponent implements OnInit {
         firstName: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
         lastName: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
         email: ['', [Validators.email, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]],
-        phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+        phoneNumber: ['', [Validators.required, Validators.maxLength(12), Validators.minLength(2)]],
         alternetPhoneNumber: ['', [Validators.maxLength(10), Validators.minLength(10)]],
         dob: ['', Validators.required],
         gender: ['', Validators.required],
@@ -49,8 +49,8 @@ export class CreateStudentComponent implements OnInit {
       })
     }
     async studentSubmit() {
+      
       this.submitted = true;
-      if (this.studentForm.invalid) return;
       try {
          await this.service.signupApiCall(this.studentForm.value)
          return
