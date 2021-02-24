@@ -61,9 +61,9 @@
                                 <td>{{ user.classes}}</td>
                                 <td>{{ user.result.createdAt}}</td>
                                 <td>
-                                    <span class="badge bg-inverse-warning" *ngIf="user.result.isActive==false">Approval Pending</span>
-                                    <span class="badge bg-inverse-success" *ngIf="user.result.isActive==true && user.result.status == true">Active</span>
-                                    <span class="badge bg-inverse-danger" *ngIf="user.result.isActive==true && user.result.status == false">Inactive</span>
+                                    <span class="badge bg-inverse-warning" *ngIf="user.result.isActive==false" (click)="clickActive(user.result.userId)">Approval Pending</span>
+                                    <span class="badge bg-inverse-success" *ngIf="user.result.isActive==true && user.result.status == true" (click)="clickMethod(user.result.userId)"> Active</span>
+                                    <span class="badge bg-inverse-danger" *ngIf="user.result.isActive==true && user.result.status == false" (click)="clickMethod(user.result.userId)">Inactive</span>
                                 </td>
                                 <td class="text-right">
                                     <div class="dropdown dropdown-action">
@@ -82,7 +82,7 @@
         </div>
    
         <!-- Add User Modal -->
-        <div id="add_user" class="modal custom-modal fade" role="dialog">
+        <ng-template #mymodal let-modal>
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -270,7 +270,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </ng-template>
         <!-- /Add User Modal -->
         
         <!-- Edit User Modal -->
