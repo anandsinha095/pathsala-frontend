@@ -174,6 +174,21 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Religion<span class="text-danger">*</span></label>
+                                <select class="form-control select" [formControl]="studentForm.controls.religion">
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Muslim">Muslim</option>
+                                    <option value="Sikh">Sikh</option>
+                                    <option value="Christian">Christian</option>
+                                </select>
+                                <div *ngIf="submitted && studentForm.controls.religion.errors" class="error matMargin">
+                                    <div *ngIf="studentForm.controls.religion.errors.required">Please Select gender</div>
+                                    <div *ngIf="studentForm.controls.religion.errors.religion">Invalid gender</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">

@@ -12,6 +12,7 @@ import { NavComponent } from './ui/nav/nav.component';
 import { StudentsComponent } from './ui/students/students/students.component'
 import { CreateStudentComponent } from './ui/students/create-student/create-student.component';
 import { RegisterComponent } from './ui/register/register.component';
+import { StudentProfileComponent } from './ui/students/student-profile/student-profile.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { RegisterComponent } from './ui/register/register.component';
     NavComponent,
     StudentsComponent,
     CreateStudentComponent,
-    RegisterComponent
+    RegisterComponent,
+    StudentProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,7 @@ export class CreateStudentComponent implements OnInit {
     
   ngOnInit(){
      this.localData.checkLogin()
-    this.studentForm = this.formBuilder.group({
+     this.studentForm = this.formBuilder.group({
         firstName: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
         lastName: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
         email: ['', [Validators.email, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]],
@@ -36,6 +36,7 @@ export class CreateStudentComponent implements OnInit {
         dob: ['', Validators.required],
         gender: ['', Validators.required],
         classId: ['', Validators.required],
+        religion: ['', Validators.required],
         fatherFirstName: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
         fatherLastName: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
         fatherOccupation: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
