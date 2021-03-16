@@ -9,7 +9,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Create Class</h3>
+                    <h3 class="page-title">Edit Class</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item active">Create Class</li>
@@ -35,7 +35,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Seats <span class="text-danger">*</span></label>
-                                <input class="form-control"  [formControl]="classForm.controls.seats" [(ngModel)]="classes.seat" type="number">
+                                <input class="form-control"  [formControl]="classForm.controls.seats" [(ngModel)]="classes.seats" type="number">
                                 <div *ngIf="submitted && classForm.controls.seats.errors" class="error matMargin">
                                     <div *ngIf="classForm.controls.seats.errors.required">Please enter seats</div>
                                     <div *ngIf="classForm.controls.seats.errors.seats">Invalid seats</div>
@@ -63,7 +63,7 @@
                                                     <div *ngIf="classForm.controls.registration.errors.required">Please enter Registration & Prospectus Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.registration" /></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.registration" [(ngModel)]="classes.classFee.registration"/></td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
@@ -72,7 +72,7 @@
                                                     <div *ngIf="classForm.controls.security.errors.required">Please enter Security Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.security"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.security" [(ngModel)]="classes.classFee.security"/></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
@@ -81,7 +81,7 @@
                                                     <div *ngIf="classForm.controls.admission.errors.required">Please enter Admission Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.admission"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.admission" [(ngModel)]="classes.classFee.admission"/></td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
@@ -90,7 +90,7 @@
                                                     <div *ngIf="classForm.controls.annual.errors.required">Please enter Annual Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.annual"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.annual" [(ngModel)]="classes.classFee.annual" /></td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
@@ -99,7 +99,7 @@
                                                     <div *ngIf="classForm.controls.exam.errors.required">Please enter Exam  Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.exam"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.exam" [(ngModel)]="classes.classFee.exam" /></td>
                                         </tr>
                                         <tr>
                                             <td>6</td>
@@ -108,7 +108,7 @@
                                                     <div *ngIf="classForm.controls.tuition.errors.required">Please enter Tuition Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.tuition"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.tuition" [(ngModel)]="classes.classFee.tuition" /></td>
                                         </tr>
                                         <tr>
                                             <td>7</td>
@@ -117,7 +117,7 @@
                                                     <div *ngIf="classForm.controls.computer.errors.required">Please enter Computer Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.computer"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.computer"  [(ngModel)]="classes.classFee.computer"  /></td>
                                         </tr>
                                         <tr>
                                             <td>8</td>
@@ -126,7 +126,7 @@
                                                     <div *ngIf="classForm.controls.transport.errors.required">Please enter Transport Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.transport"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.transport" [(ngModel)]="classes.classFee.transport" /></td>
                                         </tr>
                                         <tr>
                                             <td>9</td>
@@ -135,7 +135,7 @@
                                                     <div *ngIf="classForm.controls.dance.errors.required">Please enter Dance Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.dance"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.dance" [(ngModel)]="classes.classFee.dance" /></td>
                                         </tr>
                                         <tr>
                                             <td>10</td>
@@ -144,7 +144,7 @@
                                                     <div *ngIf="classForm.controls.miscellaneous.errors.required">Please enter miscellaneous Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.miscellaneous"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.miscellaneous" [(ngModel)]="classes.classFee.miscellaneous" /></td>
                                         </tr>
                                         <tr>
                                             <td>11</td>
@@ -153,7 +153,7 @@
                                                     <div *ngIf="classForm.controls.extraActivityClasses.errors.required">Please enter Extra Activity Classes Fee</div>
                                                 </div>
                                             </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.extraActivityClasses"/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.extraActivityClasses" [(ngModel)]="classes.classFee.extraActivityClasses" /></td>
                                         </tr>
                                     </tbody>
                                 </table>

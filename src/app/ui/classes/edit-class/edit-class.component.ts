@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { CreateStudentService } from '../../../service/students/create-student.service';
+import { ClassesService } from '../../../service/classes/classes.service';
 import { CommonService } from '../../../service/commonservice/common.service'
 import { CommoncallService } from '../../../service/commoncall/commoncall.service';
 import { ToastrService } from 'ngx-toastr'; 
@@ -20,6 +20,7 @@ export class EditClassComponent implements OnInit {
     private router: Router, 
     private route:ActivatedRoute,
     private formBuilder: FormBuilder,
+    private service : ClassesService,
     private toastr: ToastrService,
     private apiCall: CommoncallService,
     private localData: CommonService) { }
@@ -29,6 +30,7 @@ export class EditClassComponent implements OnInit {
       let id= this.route.snapshot.paramMap.get('id');
       this.apiCall.getRequestHeader("classes/classInfo/"+id, this.localData.getlocalData()['token']).subscribe((res:any) => {
         this.classes = res['data']  
+        console.log('>>>>>>>', this.classes)
       });
       this.classForm = this.formBuilder.group({
         name: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
@@ -47,11 +49,10 @@ export class EditClassComponent implements OnInit {
       })
     }
     async classSubmit() {
-      console.log('???????')
       this.submitted = true;
-      console.log('?????????',this.classForm.value)
+      let id= this.route.snapshot.paramMap.get('id');
       try {
-        //await this.service.signupApiCall(this..value)
+         await this.service.upadteClass(this.classForm.value, id)
         return
       }
       catch (e) {
