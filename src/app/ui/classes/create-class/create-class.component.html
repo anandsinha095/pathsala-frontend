@@ -1,0 +1,126 @@
+<app-nav></app-nav>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+			
+    <!-- Page Content -->
+    <div class="content container-fluid">
+    
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Create Class</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Create Class</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="classForm" (ngSubmit)="classSubmit()">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Name <span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="classForm.controls.name"  type="text">
+                                <div *ngIf="submitted && classForm.controls.name.errors" class="error matMargin">
+                                    <div *ngIf="classForm.controls.name.errors.required">Please enter steats</div>
+                                    <div *ngIf="classForm.controls.name.errors.name">Invalid steats</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Seats <span class="text-danger">*</span></label>
+                                <input class="form-control"  [formControl]="classForm.controls.seats" type="number">
+                                <div *ngIf="submitted && classForm.controls.seats.errors" class="error matMargin">
+                                    <div *ngIf="classForm.controls.seats.errors.required">Please enter seats</div>
+                                    <div *ngIf="classForm.controls.seats.errors.seats">Invalid seats</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-white">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 20px;">#</th>
+                                            <th class="col-sm-2">Item</th>
+                                            <th>Amount</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Registration & Prospectus" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.registration"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Security Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.security"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Admission Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.admission"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Annual Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.annual"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Exam Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.exam"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Tuition Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.tuition"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Computer Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.computer"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Transport Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.transport"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Dance Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.dance"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Miscellaneous Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.miscellaneous"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Extra Activity Classes Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.extraActivityClasses"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn"  type="submit" >Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>  

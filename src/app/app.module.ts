@@ -13,6 +13,11 @@ import { StudentsComponent } from './ui/students/students/students.component'
 import { CreateStudentComponent } from './ui/students/create-student/create-student.component';
 import { RegisterComponent } from './ui/register/register.component';
 import { StudentProfileComponent } from './ui/students/student-profile/student-profile.component';
+import { BillingComponent } from './ui/billing/billing.component';
+import { CreateBillingComponent } from './ui/billing/create-billing/create-billing.component';
+import { ClassesComponent } from './ui/classes/classes.component';
+import { CreateClassComponent } from './ui/classes/create-class/create-class.component';
+import { EditClassComponent } from './ui/classes/edit-class/edit-class.component';
 
 
 @NgModule({
@@ -24,7 +29,12 @@ import { StudentProfileComponent } from './ui/students/student-profile/student-p
     StudentsComponent,
     CreateStudentComponent,
     RegisterComponent,
-    StudentProfileComponent
+    StudentProfileComponent,
+    BillingComponent,
+    CreateBillingComponent,
+    ClassesComponent,
+    CreateClassComponent,
+    EditClassComponent
   ],
   imports: [
     BrowserModule,

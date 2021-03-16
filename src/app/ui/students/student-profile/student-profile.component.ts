@@ -25,15 +25,13 @@ export class StudentProfileComponent implements OnInit {
     let id= this.route.snapshot.paramMap.get('id');
     this.localData.checkLogin()
     this.apiCall.getRequestHeader("student/studentInfo/"+id, this.localData.getlocalData()['token']).subscribe((res:any) => {
-      console.log('>>>>>>>', res['data'])
       this.student = res['data'];
       this.apiCall.getRequestHeader("classes/classList", this.localData.getlocalData()['token']).subscribe((res:any) => {
         this.classes = res['data']
         this.classes.forEach((ele: any) => {
           if(ele._id === this.student.classId)
             this.class = ele.name
-            console.log('>>>>>>>', this.class )
-        });        
+          });        
       });
     });
   }
