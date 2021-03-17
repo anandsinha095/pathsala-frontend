@@ -28,7 +28,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Class</th>
-                                <th>Total Steats</th>
+                                <th>Total Seats</th>
                                 <th>Status</th>
                                 <th class="text-right">Action</th>
                             </tr>
@@ -37,7 +37,7 @@
                             <tr *ngFor="let class of classes; let i=index">
                                 <td>{{ i+1}}</td>
                                 <td>{{ class.name}}</td>
-                                <td>{{ class.steats}}</td>
+                                <td>{{ class.seats}}</td>
                                 <td>
                                     <span class="badge bg-inverse-success" *ngIf="class.status == true" (click)="clickMethod(class._id)"> Active</span>
                                     <span class="badge bg-inverse-danger" *ngIf="class.status == false" (click)="clickMethod(class._id)">Inactive</span>

@@ -32,7 +32,7 @@ export class EditClassComponent implements OnInit {
         this.classes = res['data'];
       });
       this.classForm = this.formBuilder.group({
-        name: ['', [<any>Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
+        name: ['', [<any>Validators.required, Validators.maxLength(12), Validators.minLength(2)]],
         seats: ['', [<any>Validators.required,Validators.maxLength(12), Validators.minLength(2)]],
         registration: ['', [<any>Validators.required, Validators.maxLength(12), Validators.minLength(2)]],
         security:  ['', [ Validators.maxLength(12), Validators.minLength(2)]],
