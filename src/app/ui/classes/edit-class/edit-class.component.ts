@@ -29,34 +29,34 @@ export class EditClassComponent implements OnInit {
       this.localData.checkLogin()
       let id= this.route.snapshot.paramMap.get('id');
       this.apiCall.getRequestHeader("classes/classInfo/"+id, this.localData.getlocalData()['token']).subscribe((res:any) => {
-        this.classes = res['data']  
-        console.log('>>>>>>>', this.classes)
+        this.classes = res['data'];
       });
       this.classForm = this.formBuilder.group({
-        name: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        seats: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        registration: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        security:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        admission:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        annual:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        exam:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        tuition:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        computer:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        transport:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        dance:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        miscellaneous:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
-        extraActivityClasses:  ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
+        name: ['', [<any>Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), Validators.maxLength(12), Validators.minLength(2)]],
+        seats: ['', [<any>Validators.required,Validators.maxLength(12), Validators.minLength(2)]],
+        registration: ['', [<any>Validators.required, Validators.maxLength(12), Validators.minLength(2)]],
+        security:  ['', [ Validators.maxLength(12), Validators.minLength(2)]],
+        admission:  ['', [Validators.maxLength(12), Validators.minLength(2)]],
+        annual:  ['', [ Validators.maxLength(12), Validators.minLength(2)]],
+        exam:  ['', [<any>Validators.required,  Validators.maxLength(12), Validators.minLength(2)]],
+        tuition:  ['', [<any>Validators.required,  Validators.maxLength(12), Validators.minLength(2)]],
+        computer:  ['', [Validators.maxLength(12), Validators.minLength(2)]],
+        dance:  ['', [Validators.maxLength(12), Validators.minLength(2)]],
+        miscellaneous:  ['', [Validators.maxLength(12), Validators.minLength(2)]],
+        extraActivityClasses:  ['', [Validators.maxLength(12), Validators.minLength(2)]],
       })
     }
     async classSubmit() {
       this.submitted = true;
       let id= this.route.snapshot.paramMap.get('id');
+      if (this.classForm.invalid) return;
       try {
-         await this.service.upadteClass(this.classForm.value, id)
+        await this.service.upadteClass(this.classForm.value, id)
         return
       }
       catch (e) {
         this.toastr.error(e, "Oops!")
-      }
+     }
+     
   }
 }

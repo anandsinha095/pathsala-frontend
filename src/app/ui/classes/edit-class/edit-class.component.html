@@ -67,29 +67,17 @@
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Security Fee" readonly/>
-                                                <div *ngIf="submitted && classForm.controls.security.errors" class="error matMargin">
-                                                    <div *ngIf="classForm.controls.security.errors.required">Please enter Security Fee</div>
-                                                </div>
-                                            </td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Security Fee" readonly/></td>
                                             <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.security" [(ngModel)]="classes.classFee.security"/></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Admission Fee" readonly/>
-                                                <div *ngIf="submitted && classForm.controls.admission.errors" class="error matMargin">
-                                                    <div *ngIf="classForm.controls.admission.errors.required">Please enter Admission Fee</div>
-                                                </div>
-                                            </td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Admission Fee" readonly/></td>
                                             <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.admission" [(ngModel)]="classes.classFee.admission"/></td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Annual Fee" readonly/>
-                                                <div *ngIf="submitted && classForm.controls.annual.errors" class="error matMargin">
-                                                    <div *ngIf="classForm.controls.annual.errors.required">Please enter Annual Fee</div>
-                                                </div>
-                                            </td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Annual Fee" readonly/></td>
                                             <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.annual" [(ngModel)]="classes.classFee.annual" /></td>
                                         </tr>
                                         <tr>
@@ -112,47 +100,22 @@
                                         </tr>
                                         <tr>
                                             <td>7</td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Computer Fee" readonly/>
-                                                <div *ngIf="submitted && classForm.controls.computer.errors" class="error matMargin">
-                                                    <div *ngIf="classForm.controls.computer.errors.required">Please enter Computer Fee</div>
-                                                </div>
-                                            </td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Computer Fee" readonly/> </td>
                                             <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.computer"  [(ngModel)]="classes.classFee.computer"  /></td>
                                         </tr>
                                         <tr>
                                             <td>8</td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Transport Fee" readonly/>
-                                                <div *ngIf="submitted && classForm.controls.transport.errors" class="error matMargin">
-                                                    <div *ngIf="classForm.controls.transport.errors.required">Please enter Transport Fee</div>
-                                                </div>
-                                            </td>
-                                            <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.transport" [(ngModel)]="classes.classFee.transport" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Dance Fee" readonly/>
-                                                <div *ngIf="submitted && classForm.controls.dance.errors" class="error matMargin">
-                                                    <div *ngIf="classForm.controls.dance.errors.required">Please enter Dance Fee</div>
-                                                </div>
-                                            </td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Dance Class Fee" readonly/></td>
                                             <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.dance" [(ngModel)]="classes.classFee.dance" /></td>
                                         </tr>
                                         <tr>
-                                            <td>10</td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Miscellaneous Fee" readonly/>
-                                                <div *ngIf="submitted && classForm.controls.miscellaneous.errors" class="error matMargin">
-                                                    <div *ngIf="classForm.controls.miscellaneous.errors.required">Please enter miscellaneous Fee</div>
-                                                </div>
-                                            </td>
+                                            <td>9</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Miscellaneous Fee" readonly/></td>
                                             <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.miscellaneous" [(ngModel)]="classes.classFee.miscellaneous" /></td>
                                         </tr>
                                         <tr>
-                                            <td>11</td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Extra Activity Classes Fee" readonly/>
-                                                <div *ngIf="submitted && classForm.controls.extraActivityClasses.errors" class="error matMargin">
-                                                    <div *ngIf="classForm.controls.extraActivityClasses.errors.required">Please enter Extra Activity Classes Fee</div>
-                                                </div>
-                                            </td>
+                                            <td>10</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Extra Activity Classes Fee" readonly/> </td>
                                             <td><input class="form-control" type="number" style="min-width: 150px;"   [formControl]="classForm.controls.extraActivityClasses" [(ngModel)]="classes.classFee.extraActivityClasses" /></td>
                                         </tr>
                                     </tbody>
@@ -161,7 +124,8 @@
                         </div>
                     </div>
                     <div class="submit-section">
-                        <button class="btn btn-primary submit-btn"  type="submit" >Submit</button>
+                        <button class="btn btn-primary submit-btn"  [disabled]="!classForm.valid"
+                        [ngClass]=" {'btn-primary': classForm.valid === true,'btn-info': classForm.valid === false}" type="submit" >Submit</button>
                     </div>
                 </form>
             </div>
