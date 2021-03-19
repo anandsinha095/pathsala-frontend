@@ -50,13 +50,12 @@ export class EditClassComponent implements OnInit {
       this.submitted = true;
       let id= this.route.snapshot.paramMap.get('id');
       if (this.classForm.invalid) return;
-      try {
-        await this.service.upadteClass(this.classForm.value, id)
-        return
+          try {
+            await this.service.upadteClass(this.classForm.value, id)
+            return
+          }
+          catch (e) {
+            this.toastr.error(e, "Oops!")
+        }    
       }
-      catch (e) {
-        this.toastr.error(e, "Oops!")
-     }
-     
-  }
 }

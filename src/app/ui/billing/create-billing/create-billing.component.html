@@ -15,62 +15,162 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <form>
+                <form [formGroup]="billFrom" >
                     <div class="row">
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
-                                <label>Client <span class="text-danger">*</span></label>
-                                <select class="form-control select" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                    <option>Please Select</option>
-                                    <option data-select2-id="3">Barry Cuda</option>
-                                    <option>Tressa Wexler</option>
+                                <label>Student <span class="text-danger">*</span></label>
+                                <select class="form-control select" [formControl]="billFrom.controls.userId" (change)="studentClassData(billFrom.controls.userId)" >
+                                    <option  *ngFor="let student of students" [value]="student.result._id"> {{student.result.firstName}} {{student.result.lastName}}</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-sm-6 col-md-3" *ngIf="allDataStatus">
                             <div class="form-group">
-                                <label>Project <span class="text-danger">*</span></label>
-                                <select class="form-control select" data-select2-id="4" tabindex="-1" aria-hidden="true">
-                                    <option>Select Project</option>
-                                    <option data-select2-id="6">Office Management</option>
-                                    <option>Project Management</option>
-                                </select>
+                                <label>Class <span class="text-danger">*</span></label>
+                                <input class="form-control" [formControl]="billFrom.controls.className" [(ngModel)]="selectedClass" type="text" style="min-width: 150px;" />
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="form-group"><label>Email</label><input class="form-control" type="email" /></div>
+                        <div class="col-sm-6 col-md-3" *ngIf="allDataStatus">
+                            <div class="form-group"><label>Email</label><input class="form-control" type="email" [formControl]="billFrom.controls.email" [(ngModel)]="studentData.email" /></div>
                         </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <label>Tax</label>
-                                <select class="form-control select" data-select2-id="7" tabindex="-1" aria-hidden="true">
-                                    <option data-select2-id="9">Select Tax</option>
-                                    <option>VAT</option>
-                                    <option>GST</option>
-                                    <option>No Tax</option>
-                                </select>
+                        <div class="col-sm-6 col-md-3" *ngIf="allDataStatus">
+                            <div class="form-group"><label>Contact Number</label><input class="form-control" type="email" [formControl]="billFrom.controls.phoneNumber" [(ngModel)]="studentData.phoneNumber" /></div>
+                      
+                        </div>
+                        <div class="col-sm-6 col-md-3" *ngIf="allDataStatus">
+                            <div class="form-group"><label>Client Address</label><textarea class="form-control" rows="3"  [formControl]="billFrom.controls.address" [(ngModel)]="selectAddress"></textarea></div>
+                        </div>
+                        <div class="col-sm-6 col-md-3" *ngIf="allDataStatus">
+                            <div class="form-group"><label>Billing Address</label><textarea class="form-control" rows="3" [formControl]="billFrom.controls.address" [(ngModel)]="selectAddress"></textarea></div>
+                        </div>
+                            <div class="col-sm-12 col-md-12" *ngIf="allDataStatus">
+                                <label>Select Payment Month*</label>
+                                <div class="row">
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    JAN
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    FEB
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    MAR
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    APR
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    MAY
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    JUNE
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    JULY
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    AUG
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    SEP
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    OCT
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    NOV
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2">  
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                                <label class="form-check-label" for="invalidCheck">
+                                                    DEC
+                                                </label>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="form-group"><label>Client Address</label><textarea class="form-control" rows="3"></textarea></div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="form-group"><label>Billing Address</label><textarea class="form-control" rows="3"></textarea></div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <label>Invoice date <span class="text-danger">*</span></label>
-                                <div class="cal-icon"><input class="form-control datetimepicker" type="text" /></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <label>Due Date <span class="text-danger">*</span></label>
-                                <div class="cal-icon"><input class="form-control datetimepicker" type="text" /></div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="row">
+                    <div class="row" *ngIf="allDataStatus">
                         <div class="col-md-12 col-sm-12">
                             <div class="table-responsive">
                                 <table class="table table-hover table-white">
@@ -83,11 +183,79 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let billList of billingList; let i = index">
-                                            <td>{{i+1}}</td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;"  value={{billList}} readonly/></td>
-                                            <td><input class="form-control" type="text" style="min-width: 150px;" /></td>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Registration & Prospectus" readonly/>
+                                                <div *ngIf="submitted && billFrom.controls.registration.errors" class="error matMargin">
+                                                    <div *ngIf="billFrom.controls.registration.errors.required">Please enter Registration & Prospectus Fee</div>
+                                                </div>
+                                            </td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;" (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.registration" [(ngModel)]="classes.classFee.registration"/></td>
                                         </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Security Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"  (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.security" [(ngModel)]="classes.classFee.security"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Admission Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;" (keyup)="onKeypressEvent($event)"   [formControl]="billFrom.controls.admission" [(ngModel)]="classes.classFee.admission"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Annual Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"  (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.annual" [(ngModel)]="classes.classFee.annual" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Exam Fee" readonly/>
+                                                <div *ngIf="submitted && billFrom.controls.exam.errors" class="error matMargin">
+                                                    <div *ngIf="billFrom.controls.exam.errors.required">Please enter Exam  Fee</div>
+                                                </div>
+                                            </td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;" (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.exam" [(ngModel)]="classes.classFee.exam" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Tuition Fee" readonly/>
+                                                <div *ngIf="submitted && billFrom.controls.tuition.errors" class="error matMargin">
+                                                    <div *ngIf="billFrom.controls.tuition.errors.required">Please enter Tuition Fee</div>
+                                                </div>
+                                            </td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"  (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.tuition" [(ngModel)]="classes.classFee.tuition" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Computer Fee" readonly/> </td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;"  (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.computer"  [(ngModel)]="classes.classFee.computer"  /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Dance Class Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;" (keyup)="onKeypressEvent($event)"   [formControl]="billFrom.controls.dance" [(ngModel)]="classes.classFee.dance" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="Miscellaneous Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;" (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.miscellaneous" [(ngModel)]="classes.classFee.miscellaneous" /></td>
+                                        </tr>
+                                         <tr>
+                                            <td>10</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="extraActivityClasses Fee" readonly/></td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;" (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.extraActivityClasses" [(ngModel)]="classes.classFee.extraActivityClasses" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="arrears" readonly/> </td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;" (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.arrears" value="0" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td><input class="form-control" type="text" style="min-width: 150px;"   value="fine" readonly/> </td>
+                                            <td><input class="form-control" type="number" style="min-width: 150px;" (keyup)="onKeypressEvent($event)"  [formControl]="billFrom.controls.fine" value="0" /></td>
+                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -100,15 +268,26 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-right">Total</td>
-                                            <td style="text-align: right; padding-right: 30px; width: 230px;">0</td>
+                                            <td style="text-align: right; padding-right: 30px; width: 230px;">{{totalAmount}}</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="5" class="text-right">Discount %</td>
-                                            <td style="text-align: right; padding-right: 30px; width: 230px;"><input class="form-control text-right" type="text" /></td>
+                                            <td colspan="5" class="text-right">Discount Type</td>
+                                            <td style="text-align: right; padding-right: 30px; width: 230px;">                                                
+                                                    <select class="form-control select" [formControl]="billFrom.controls.discountType" (change)="discountMode(billFrom.controls.discountType)">
+                                                        <option value="persentage">Persentage</option>
+                                                        <option value="rupyee">Rupyee</option>
+                                                    </select>
+                                            </td>
+                                        </tr>
+                                        <tr *ngIf="discountModes">
+                                            <td colspan="5" class="text-right" *ngIf="discountModes=='persentage'">Discount %</td>
+                                            <td colspan="5" class="text-right" *ngIf="discountModes=='rupyee'">Discount ₹</td>
+                                            <td style="text-align: right; padding-right: 30px; width: 230px;">
+                                                <input class="form-control text-right" (keyup)="discountKeyup(billFrom.controls.discount)" type="number" value=0 [formControl]="billFrom.controls.discount"/></td>
                                         </tr>
                                         <tr>
                                             <td colspan="5" style="text-align: right; font-weight: bold;">Grand Total</td>
-                                            <td style="text-align: right; padding-right: 30px; font-weight: bold; font-size: 16px; width: 230px;">$ 0.00</td>
+                                            <td style="text-align: right; padding-right: 30px; font-weight: bold; font-size: 16px; width: 230px;">₹ {{finalAmount}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
